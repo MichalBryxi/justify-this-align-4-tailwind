@@ -10,7 +10,7 @@ export default class ParentComponent extends Component {
   get validForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return item.classGroup.valid.includes(this.type);
+        return item.classGroup.valid.includes(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -21,7 +21,7 @@ export default class ParentComponent extends Component {
   get invalidForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return !item.classGroup.valid.includes(this.type);
+        return !item.classGroup.valid.includes(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -29,12 +29,8 @@ export default class ParentComponent extends Component {
       .join(' ');
   }
 
-  get type() {
-    return this.args.type ?? 'flex';
-  }
-
   get defaultClasses() {
-    switch (this.type) {
+    switch (this.args.type) {
       case 'flex':
         return 'flex';
       case 'grid':

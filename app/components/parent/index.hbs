@@ -4,6 +4,8 @@
     {{this.validForTypeInParent}} <span class="text-red-600">{{this.invalidForTypeInParent}}</span>
   </div>
   <div class="rounded-b-xl bg-blue-200 gap-4 {{this.defaultClasses}} {{this.validForTypeInParent}}">
-    {{yield}}
+    <Child @type={{@type}} @selected={{@selected}}>01</Child>
+    <Child @type={{@type}} @selected={{@selected}}>02</Child>
+    <Child @type={{@type}} @selected={{@selected}}>03</Child>
   </div>
 </div>

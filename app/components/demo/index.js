@@ -37,6 +37,18 @@ export default class DemoComponent extends Component {
         'justify-items-stretch',
       ],
     },
+    {
+      id: 'justify-self',
+      label: 'Justify Self',
+      valid: ['grid', 'child'],
+      options: [
+        'justify-self-auto',
+        'justify-self-start',
+        'justify-self-end',
+        'justify-self-center',
+        'justify-self-stretch',
+      ],
+    },
   ];
 
   @action toggleRadio(classGroup, value) {
