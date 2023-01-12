@@ -27,6 +27,8 @@
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.8.1",
+    "@frontile/core": "^0.14.0",
+    "@frontile/forms": "^0.14.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "babel-eslint": "^10.1.0",
@@ -60,8 +62,8 @@
     "prettier": "^2.8.1",
     "qunit": "^2.19.3",
     "qunit-dom": "^2.0.0",
-    "webpack": "^5.75.0",
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^3.0.0",
+    "webpack": "^5.75.0"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
