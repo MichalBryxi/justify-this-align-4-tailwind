@@ -1,0 +1,8 @@
+<div class="w-full">
+  <div class="rounded-t-xl bg-blue-400 px-4 py-2">
+    {{@classes}}
+  </div>
+  <div class="rounded-b-xl bg-blue-200 gap-4 {{this.defaultClasses}} {{@classes}}">
+    {{yield}}
+  </div>
+</div>
