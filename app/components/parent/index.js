@@ -2,12 +2,26 @@ import Component from '@glimmer/component';
 
 export default class ParentComponent extends Component {
   get parentClasses() {
-    return Object.values(this.args.selected)
+    return Object.values(this.args.selected).filter((item) => {
+      return item.classGroup.valid.includes('parent');
+    });
+  }
+
+  get validForTypeInParent() {
+    return this.parentClasses
       .filter((item) => {
         return item.classGroup.valid.includes(this.type);
       })
+      .map((item) => {
+        return item.value;
+      })
+      .join(' ');
+  }
+
+  get invalidForTypeInParent() {
+    return this.parentClasses
       .filter((item) => {
-        return item.classGroup.valid.includes('parent');
+        return !item.classGroup.valid.includes(this.type);
       })
       .map((item) => {
         return item.value;

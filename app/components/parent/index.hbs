@@ -1,9 +1,9 @@
 {{log @selected}}
 <div class="w-full">
   <div class="rounded-t-xl bg-blue-400 px-4 py-2">
-    {{this.parentClasses}}
+    {{this.validForTypeInParent}} <span class="text-red-600">{{this.invalidForTypeInParent}}</span>
   </div>
-  <div class="rounded-b-xl bg-blue-200 gap-4 {{this.defaultClasses}} {{this.parentClasses}}">
+  <div class="rounded-b-xl bg-blue-200 gap-4 {{this.defaultClasses}} {{this.validForTypeInParent}}">
     {{yield}}
   </div>
 </div>
