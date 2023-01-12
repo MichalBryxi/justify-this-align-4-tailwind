@@ -7,33 +7,8 @@
       @onToggle={{fn this.toggleRadio classGroup.id}}
     />
   {{/each}}
-  {{!-- <FormRadioGroup
-    @label="Justify Content"
-    @value={{this.justifyContent}}
-    @onChange={{fn (mut this.justifyContent)}}
-    as |Radio|
-  >
-    <Radio @value="" @label="none" />
-    <Radio @value="justify-start" @label="justify-start" />
-    <Radio @value="justify-end" @label="justify-end" />
-    <Radio @value="justify-center" @label="justify-center" />
-    <Radio @value="justify-between" @label="justify-between" />
-    <Radio @value="justify-around" @label="justify-around" />
-    <Radio @value="justify-evenly" @label="justify-evenly" />
-  </FormRadioGroup>
+  {{log this.selected}}
 
-  <FormRadioGroup
-    @label="Justify Items"
-    @value={{this.justifyItems}}
-    @onChange={{fn (mut this.justifyItems)}}
-    as |Radio|
-  >
-    <Radio @value="" @label="none" />
-    <Radio @value="justify-items-start" @label="justify-items-start" />
-    <Radio @value="justify-items-end" @label="justify-items-end" />
-    <Radio @value="justify-items-center" @label="justify-items-center" />
-    <Radio @value="justify-items-stretch" @label="justify-stretch" />
-  </FormRadioGroup> --}}
 </div>
 
 <Parent @classes="{{this.parentClasses}}">
