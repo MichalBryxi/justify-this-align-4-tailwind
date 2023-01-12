@@ -32,9 +32,9 @@ export default class ParentComponent extends Component {
   get defaultClasses() {
     switch (this.args.type) {
       case 'flex':
-        return 'flex';
+        return 'h-64 flex';
       case 'grid':
-        return 'grid grid-cols-2';
+        return 'h-64 grid grid-cols-2';
       default:
         return '';
     }

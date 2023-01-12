@@ -10,7 +10,7 @@ export default class ChildComponent extends Component {
   get validForTypeInChild() {
     return this.childClasses
       .filter((item) => {
-        return item.classGroup.valid.includes(this.type);
+        return item.classGroup.valid.includes(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -21,7 +21,7 @@ export default class ChildComponent extends Component {
   get invalidForTypeInChild() {
     return this.childClasses
       .filter((item) => {
-        return !item.classGroup.valid.includes(this.type);
+        return !item.classGroup.valid.includes(this.args.type);
       })
       .map((item) => {
         return item.value;

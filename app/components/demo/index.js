@@ -49,6 +49,20 @@ export default class DemoComponent extends Component {
         'justify-self-stretch',
       ],
     },
+    {
+      id: 'align-content',
+      label: 'Align Content',
+      valid: ['flex', 'grid', 'parent'],
+      options: [
+        'content-center',
+        'content-start',
+        'content-end',
+        'content-between',
+        'content-around',
+        'content-evenly',
+        'content-baseline',
+      ],
+    },
   ];
 
   @action toggleRadio(classGroup, value) {
