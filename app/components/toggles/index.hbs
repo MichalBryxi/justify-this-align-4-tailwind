@@ -1,0 +1,11 @@
+  <FormRadioGroup
+    @label={{@label}}
+    @value={{this.justifyContent}}
+    @onChange={{@onToggle}}
+    as |Radio|
+  >
+    <Radio @value="" @label="none" />
+    {{#each @options as |option|}}
+      <Radio @value={{option}} @label={{option}} />
+    {{/each}}
+  </FormRadioGroup>

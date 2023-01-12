@@ -1,5 +1,13 @@
 <div class="flex flex-row overflow-x-scroll">
-  <FormRadioGroup
+  {{#each this.classGroups as |classGroup|}}
+    <Toggles
+      @label={{classGroup.label}}
+      @valid={{classGroup.valid}}
+      @options={{classGroup.options}}
+      @onToggle={{fn this.toggleRadio classGroup.id}}
+    />
+  {{/each}}
+  {{!-- <FormRadioGroup
     @label="Justify Content"
     @value={{this.justifyContent}}
     @onChange={{fn (mut this.justifyContent)}}
@@ -25,7 +33,7 @@
     <Radio @value="justify-items-end" @label="justify-items-end" />
     <Radio @value="justify-items-center" @label="justify-items-center" />
     <Radio @value="justify-items-stretch" @label="justify-stretch" />
-  </FormRadioGroup>
+  </FormRadioGroup> --}}
 </div>
 
 <Parent @classes="{{this.parentClasses}}">
