@@ -4,20 +4,20 @@
       @label={{classGroup.label}}
       @valid={{classGroup.valid}}
       @options={{classGroup.options}}
-      @onToggle={{fn this.toggleRadio classGroup.id}}
+      @onToggle={{fn this.toggleRadio classGroup}}
     />
   {{/each}}
   {{log this.selected}}
 
 </div>
 
-<Parent @classes="{{this.parentClasses}}">
+<Parent @selected={{this.selected}}>
   <Child>01</Child>
   <Child>02</Child>
   <Child>03</Child>
 </Parent>
 
-<Parent @classes="{{this.parentClasses}}" @type="grid">
+<Parent @selected={{this.selected}} @type="grid">
   <Child>01</Child>
   <Child>02</Child>
   <Child>03</Child>

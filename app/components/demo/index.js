@@ -16,7 +16,7 @@ export default class DemoComponent extends Component {
     {
       id: 'justify-content',
       label: 'Justify Content',
-      valid: ['flex', 'grid'],
+      valid: ['flex', 'grid', 'parent'],
       options: [
         'justify-start',
         'justify-end',
@@ -29,7 +29,7 @@ export default class DemoComponent extends Component {
     {
       id: 'justify-items',
       label: 'Justify Items',
-      valid: ['grid'],
+      valid: ['grid', 'parent'],
       options: [
         'justify-items-start',
         'justify-items-end',
@@ -39,7 +39,7 @@ export default class DemoComponent extends Component {
     },
   ];
 
-  @action toggleRadio(id, value) {
-    this.selected[id] = value;
+  @action toggleRadio(classGroup, value) {
+    this.selected[classGroup.id] = { value, classGroup };
   }
 }
