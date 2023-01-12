@@ -63,6 +63,31 @@ export default class DemoComponent extends Component {
         'content-baseline',
       ],
     },
+    {
+      id: 'align-items',
+      label: 'Align Items',
+      valid: ['flex', 'grid', 'parent'],
+      options: [
+        'items-start',
+        'items-end',
+        'items-center',
+        'items-baseline',
+        'items-stretch',
+      ],
+    },
+    {
+      id: 'align-self',
+      label: 'Align Self',
+      valid: ['flex', 'grid', 'child'],
+      options: [
+        'self-auto',
+        'self-start',
+        'self-end',
+        'self-center',
+        'self-stretch',
+        'self-baseline',
+      ],
+    },
   ];
 
   @action toggleRadio(classGroup, value) {
