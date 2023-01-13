@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'tailwind-justify-align-wtf',
+    modulePrefix: 'justify-this-align-4-tailwind',
     environment,
     rootURL: '/',
     locationType: 'history',

@@ -1,4 +1,4 @@
-# tailwind-justify-align-wtf
+# justify-this-align-4-tailwind
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -15,7 +15,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd tailwind-justify-align-wtf`
+* `cd justify-this-align-4-tailwind`
 * `npm install`
 
 ## Running / Development

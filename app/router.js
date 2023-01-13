@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'tailwind-justify-align-wtf/config/environment';
+import config from 'justify-this-align-4-tailwind/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;

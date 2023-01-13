@@ -1,7 +1,7 @@
 import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
-import config from 'tailwind-justify-align-wtf/config/environment';
+import config from 'justify-this-align-4-tailwind/config/environment';
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;

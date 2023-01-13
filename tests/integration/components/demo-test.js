@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'tailwind-justify-align-wtf/tests/helpers';
+import { setupRenderingTest } from 'justify-this-align-4-tailwind/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
