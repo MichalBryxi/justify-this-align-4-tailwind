@@ -1,10 +1,12 @@
 <div class="w-full">
-  <div class="rounded-t-xl bg-blue-400 px-4 py-2">
-    {{this.validForTypeInParent}} <span class="text-red-600">{{this.invalidForTypeInParent}}</span>
-  </div>
-  <div class="rounded-b-xl bg-blue-200 gap-4 {{this.defaultClasses}} {{this.validForTypeInParent}}">
-    <Child @type={{@type}} @selected={{@selected}}>01</Child>
-    <Child @type={{@type}} @selected={{@selected}}>02</Child>
-    <Child @type={{@type}} @selected={{@selected}}>03</Child>
+  <div class="flex flex-col items-start">
+    <span class="ml-4 px-4 py-2 rounded-t-xl border-dashed border-gray-400 border-t-2 border-l-2 border-r-2">
+      {{this.defaultClasses}} {{this.validForTypeInParent}} <span class="text-red-600" title="This class can't be used here">{{this.invalidForTypeInParent}}</span>
+    </span>
+    <div class="w-full rounded-xl bg-sky-200 gap-4 {{this.defaultClasses}} {{this.validForTypeInParent}}">
+      <Child @type={{@type}} @selected={{@selected}}>01</Child>
+      <Child @type={{@type}} @selected={{@selected}}>02</Child>
+      <Child @type={{@type}} @selected={{@selected}}>03</Child>
+    </div>
   </div>
 </div>

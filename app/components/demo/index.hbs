@@ -1,4 +1,4 @@
-<div class="flex flex-row overflow-x-scroll">
+<div class="flex flex-row overflow-x-scroll gap-4">
   {{#each this.classGroups as |classGroup|}}
     <Toggles
       @label={{classGroup.label}}
@@ -7,9 +7,9 @@
       @onToggle={{fn this.toggleRadio classGroup}}
     />
   {{/each}}
-  {{log this.selected}}
-
 </div>
+
+
 
 <Parent @selected={{this.selected}} @type="flex">
 </Parent>
