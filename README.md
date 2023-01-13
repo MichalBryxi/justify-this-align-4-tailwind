@@ -10,6 +10,10 @@ This simple application:
 - Automatically previews what will application of said classes mean for `grid` and for `flex`
 - Highlights if you try to use incompatible classes for `grid` or `flex
 
+## Live Demo
+
+[https://justify-this-align-4-tailwind.netlify.app/](https://justify-this-align-4-tailwind.netlify.app/)
+
 ## Screenshots
 
 ![Application main screen preview](docs/screenshot.png)
