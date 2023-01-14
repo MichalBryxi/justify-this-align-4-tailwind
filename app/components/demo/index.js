@@ -20,10 +20,6 @@ export default class DemoComponent extends Component {
   @tracked justifyItems = '';
   selected = new TrackedObject({});
 
-  get parentClasses() {
-    return [this.justifyContent, this.justifyItems].join(' ');
-  }
-
   classGroups = [
     {
       id: 'justify-content',
