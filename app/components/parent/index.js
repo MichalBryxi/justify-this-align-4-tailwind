@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { COLORS } from '../../utils/constants';
 
 export default class ParentComponent extends Component {
   get parentClasses() {
@@ -32,9 +33,9 @@ export default class ParentComponent extends Component {
   get defaultClasses() {
     switch (this.args.type) {
       case 'flex':
-        return 'h-48 flex';
+        return `h-48 flex ${COLORS.bg.flex}`;
       case 'grid':
-        return 'h-48 grid grid-cols-2';
+        return `h-48 grid bg-sky-500 grid-cols-2 ${COLORS.bg.grid}`;
       default:
         return '';
     }

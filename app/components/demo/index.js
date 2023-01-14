@@ -3,6 +3,18 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedObject } from 'tracked-built-ins';
 
+class ValidArray extends Array {
+  isFlex() {
+    return this.find((item) => item === 'flex');
+  }
+  isGrid() {
+    return this.find((item) => item === 'grid');
+  }
+  isFlexAndGrid() {
+    return this.isFlex() && this.isGrid();
+  }
+}
+
 export default class DemoComponent extends Component {
   @tracked justifyContent = '';
   @tracked justifyItems = '';
@@ -16,7 +28,7 @@ export default class DemoComponent extends Component {
     {
       id: 'justify-content',
       label: 'Justify Content',
-      valid: ['flex', 'grid', 'parent'],
+      valid: new ValidArray('flex', 'grid', 'parent'),
       options: [
         'justify-start',
         'justify-end',
@@ -29,7 +41,7 @@ export default class DemoComponent extends Component {
     {
       id: 'justify-items',
       label: 'Justify Items',
-      valid: ['grid', 'parent'],
+      valid: new ValidArray('grid', 'parent'),
       options: [
         'justify-items-start',
         'justify-items-end',
@@ -40,7 +52,7 @@ export default class DemoComponent extends Component {
     {
       id: 'justify-self',
       label: 'Justify Self',
-      valid: ['grid', 'child'],
+      valid: new ValidArray('grid', 'child'),
       options: [
         'justify-self-auto',
         'justify-self-start',
@@ -52,7 +64,7 @@ export default class DemoComponent extends Component {
     {
       id: 'align-content',
       label: 'Align Content',
-      valid: ['flex', 'grid', 'parent'],
+      valid: new ValidArray('flex', 'grid', 'parent'),
       options: [
         'content-center',
         'content-start',
@@ -66,7 +78,7 @@ export default class DemoComponent extends Component {
     {
       id: 'align-items',
       label: 'Align Items',
-      valid: ['flex', 'grid', 'parent'],
+      valid: new ValidArray('flex', 'grid', 'parent'),
       options: [
         'items-start',
         'items-end',
@@ -78,7 +90,7 @@ export default class DemoComponent extends Component {
     {
       id: 'align-self',
       label: 'Align Self',
-      valid: ['flex', 'grid', 'child'],
+      valid: new ValidArray('flex', 'grid', 'child'),
       options: [
         'self-auto',
         'self-start',
