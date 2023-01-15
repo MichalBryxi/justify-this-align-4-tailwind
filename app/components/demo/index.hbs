@@ -1,14 +1,16 @@
-<div class="flex flex-row overflow-x-scroll gap-4">
-  {{#each this.classGroups as |classGroup|}}
-    <Toggles
-      @label={{classGroup.label}}
-      @valid={{classGroup.valid}}
-      @options={{classGroup.options}}
-      @onToggle={{fn this.toggleRadio classGroup}}
-    />
-  {{/each}}
+<div class="overflow-x-scroll w-full">
+  <div class="flex flex-row gap-4">
+    {{#each this.classGroups as |classGroup|}}
+      <Toggles
+        @classGroup={{classGroup}}
+        @label={{classGroup.label}}
+        @valid={{classGroup.valid}}
+        @options={{classGroup.options}}
+        @onToggle={{fn this.toggleRadio classGroup}}
+      />
+    {{/each}}
+  </div>
 </div>
-
 
 
 <Parent @selected={{this.selected}} @type="flex">
