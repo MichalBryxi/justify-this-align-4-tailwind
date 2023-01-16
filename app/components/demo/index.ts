@@ -10,7 +10,25 @@ export interface ClassGroupArgs {
   options: string[];
 }
 
-class ClassGroup {
+export interface ClassGroupInterface {
+  id: string;
+  label: string;
+  valid: string[];
+  options: string[];
+  isFlex(): boolean;
+  isGrid(): boolean;
+  flexOrGrid(): 'flex' | 'grid' | 'flexAndGrid' | undefined;
+}
+
+export interface SelectedInterface {
+  value: string;
+  classGroup: ClassGroupInterface;
+}
+
+// eslint-disable-next-line no-undef
+export type SelectedRecord = Record<string, SelectedInterface>;
+
+export class ClassGroup implements ClassGroupInterface {
   id: string = '';
   label: string = '';
   valid: string[] = [];
@@ -42,7 +60,8 @@ class ClassGroup {
 export default class DemoComponent extends Component {
   @tracked justifyContent = '';
   @tracked justifyItems = '';
-  selected = new TrackedObject();
+  // eslint-disable-next-line no-undef
+  selected = new TrackedObject<SelectedRecord>();
 
   classGroups = [
     new ClassGroup({
