@@ -3,6 +3,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedObject } from 'tracked-built-ins';
 
+export type FlexOrGrid = 'flex' | 'grid';
+
 export interface ClassGroupArgs {
   id: string;
   label: string;
@@ -17,7 +19,7 @@ export interface ClassGroupInterface {
   options: string[];
   isFlex(): boolean;
   isGrid(): boolean;
-  flexOrGrid(): 'flex' | 'grid' | 'flexAndGrid' | undefined;
+  flexOrGrid(): FlexOrGrid | 'flexAndGrid' | undefined;
 }
 
 export interface SelectedInterface {

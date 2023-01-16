@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { COLORS } from '../../utils/constants';
-import { SelectedRecord } from '../demo';
+import { SelectedRecord, FlexOrGrid } from '../demo';
 
 interface ArgsParentSignature {
   Args: {
     selected: SelectedRecord;
-    type: 'flex' | 'grid';
+    type: FlexOrGrid;
   };
 }
 

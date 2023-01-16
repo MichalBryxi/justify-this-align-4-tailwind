@@ -1,9 +1,9 @@
 import Component from '@glimmer/component';
-import { SelectedRecord } from '../demo';
+import { SelectedRecord, FlexOrGrid } from '../demo';
 
 interface Args {
   selected: SelectedRecord;
-  type: 'flex' | 'grid';
+  type: FlexOrGrid;
 }
 
 export default class ChildComponent extends Component<Args> {
