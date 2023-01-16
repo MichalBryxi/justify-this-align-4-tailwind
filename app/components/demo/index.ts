@@ -19,6 +19,7 @@ export interface ClassGroupInterface {
   options: string[];
   isFlex(): boolean;
   isGrid(): boolean;
+  isParent(): boolean;
   flexOrGrid(): FlexOrGrid | 'flexAndGrid' | undefined;
 }
 
@@ -46,6 +47,10 @@ export class ClassGroup implements ClassGroupInterface {
 
   isGrid() {
     return this.valid.includes('grid');
+  }
+
+  isParent() {
+    return this.valid.includes('parent');
   }
 
   flexOrGrid() {

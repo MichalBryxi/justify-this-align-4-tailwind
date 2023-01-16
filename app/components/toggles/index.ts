@@ -16,4 +16,12 @@ export default class TogglesComponent extends Component<ArgsToggleSignature> {
 
     return COLORS.bg[index];
   }
+
+  get border() {
+    const isParent = this.args.classGroup.isParent();
+
+    if (!isParent) return '';
+
+    return COLORS.border.parent;
+  }
 }

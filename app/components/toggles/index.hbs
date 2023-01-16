@@ -1,12 +1,14 @@
-<div class="rounded-xl p-4 shrink-0 w-52 {{this.bgColor}}">
-  <FormRadioGroup
-    @label={{@classGroup.label}}
-    @onChange={{@onToggle}}
-    as |Radio|
-  >
-    <Radio @value="" @label="none" />
-    {{#each @classGroup.options as |option|}}
-      <Radio @value={{option}} @label={{option}} />
-    {{/each}}
-  </FormRadioGroup>
+<div class={{this.border}}>
+  <div class="rounded-xl p-4 shrink-0 w-52 h-full {{this.bgColor}}">
+    <FormRadioGroup
+      @label={{@classGroup.label}}
+      @onChange={{@onToggle}}
+      as |Radio|
+    >
+      <Radio @value="" @label="none" />
+      {{#each @classGroup.options as |option|}}
+        <Radio @value={{option}} @label={{option}} />
+      {{/each}}
+    </FormRadioGroup>
+  </div>
 </div>
