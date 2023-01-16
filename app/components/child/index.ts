@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { SelectedRecord, FlexOrGrid } from '../demo';
+import { COLORS } from '../../utils/constants';
 
 interface Args {
   selected: SelectedRecord;
@@ -7,6 +8,8 @@ interface Args {
 }
 
 export default class ChildComponent extends Component<Args> {
+  COLORS = COLORS;
+
   get childClasses() {
     return Object.values(this.args.selected).filter((item) => {
       return item.classGroup.valid.includes('child');

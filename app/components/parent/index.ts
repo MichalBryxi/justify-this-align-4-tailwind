@@ -14,14 +14,15 @@ export default class ParentComponent extends Component<ArgsParentSignature> {
 
   get parentClasses() {
     return Object.values(this.args.selected).filter((item) => {
-      return item.classGroup.valid.includes('parent');
+      return item.classGroup.isParent();
     });
   }
 
   get validForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return item.classGroup.valid.includes(this.args.type);
+        // return item.classGroup.valid.includes(this.args.type);
+        return item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -32,7 +33,7 @@ export default class ParentComponent extends Component<ArgsParentSignature> {
   get invalidForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return !item.classGroup.valid.includes(this.args.type);
+        return !item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;

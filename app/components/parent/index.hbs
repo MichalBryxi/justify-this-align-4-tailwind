@@ -1,7 +1,7 @@
 <div class="w-full">
   <div class="flex flex-col items-start">
     <span class="ml-4 px-4 py-2 {{this.COLORS.border.parent}}">
-      {{this.defaultClasses}} {{this.validForTypeInParent}} <span class="text-red-600" title="This class can't be used here">{{this.invalidForTypeInParent}}</span>
+      {{this.defaultClasses}} {{this.validForTypeInParent}} <span class={{this.COLORS.invalid}} title="This class can't be used here">{{this.invalidForTypeInParent}}</span>
     </span>
     <div class="w-full rounded-xl gap-4 {{this.defaultClasses}} {{this.validForTypeInParent}}">
       <Child @type={{@type}} @selected={{@selected}}>01</Child>

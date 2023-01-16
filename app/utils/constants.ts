@@ -7,4 +7,5 @@ export const COLORS = {
   border: {
     parent: 'border-dashed border-amber-500 border-4 border-b-0 rounded-t-2xl',
   },
+  invalid: 'text-red-500',
 };
