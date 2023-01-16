@@ -3,17 +3,29 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedObject } from 'tracked-built-ins';
 
-class ClassGroup extends Object {
-  constructor(params) {
-    super(params);
+export interface ClassGroupArgs {
+  id: string;
+  label: string;
+  valid: string[];
+  options: string[];
+}
+
+class ClassGroup {
+  id: string = '';
+  label: string = '';
+  valid: string[] = [];
+  options: string[] = [];
+
+  constructor(params: ClassGroupArgs) {
     Object.assign(this, params);
   }
 
   isFlex() {
-    return this.valid.find((item) => item === 'flex');
+    return this.valid.includes('flex');
   }
+
   isGrid() {
-    return this.valid.find((item) => item === 'grid');
+    return this.valid.includes('grid');
   }
 
   flexOrGrid() {
@@ -23,8 +35,6 @@ class ClassGroup extends Object {
       return 'flex';
     } else if (this.isGrid()) {
       return 'grid';
-    } else {
-      return '';
     }
   }
 }
@@ -32,7 +42,7 @@ class ClassGroup extends Object {
 export default class DemoComponent extends Component {
   @tracked justifyContent = '';
   @tracked justifyItems = '';
-  selected = new TrackedObject({});
+  selected = new TrackedObject();
 
   classGroups = [
     new ClassGroup({
@@ -112,7 +122,7 @@ export default class DemoComponent extends Component {
     }),
   ];
 
-  @action toggleRadio(classGroup, value) {
+  @action toggleRadio(classGroup: ClassGroup, value: string) {
     this.selected[classGroup.id] = { value, classGroup };
   }
 }

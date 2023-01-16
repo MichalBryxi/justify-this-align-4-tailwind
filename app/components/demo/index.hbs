@@ -3,9 +3,6 @@
     {{#each this.classGroups as |classGroup|}}
       <Toggles
         @classGroup={{classGroup}}
-        @label={{classGroup.label}}
-        @valid={{classGroup.valid}}
-        @options={{classGroup.options}}
         @onToggle={{fn this.toggleRadio classGroup}}
       />
     {{/each}}

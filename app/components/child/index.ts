@@ -1,6 +1,10 @@
 import Component from '@glimmer/component';
 
-export default class ChildComponent extends Component {
+interface Args {
+  selected: string; // TODO
+}
+
+export default class ChildComponent extends Component<Args> {
   get childClasses() {
     return Object.values(this.args.selected).filter((item) => {
       return item.classGroup.valid.includes('child');
