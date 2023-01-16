@@ -10,6 +10,8 @@ interface ArgsParentSignature {
 }
 
 export default class ParentComponent extends Component<ArgsParentSignature> {
+  COLORS = COLORS;
+
   get parentClasses() {
     return Object.values(this.args.selected).filter((item) => {
       return item.classGroup.valid.includes('parent');
