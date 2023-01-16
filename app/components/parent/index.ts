@@ -1,17 +1,27 @@
 import Component from '@glimmer/component';
 import { COLORS } from '../../utils/constants';
+import { SelectedRecord, FlexOrGrid } from '../demo';
 
-export default class ParentComponent extends Component {
+interface ArgsParentSignature {
+  Args: {
+    selected: SelectedRecord;
+    type: FlexOrGrid;
+  };
+}
+
+export default class ParentComponent extends Component<ArgsParentSignature> {
+  COLORS = COLORS;
+
   get parentClasses() {
     return Object.values(this.args.selected).filter((item) => {
-      return item.classGroup.valid.includes('parent');
+      return item.classGroup.isParent();
     });
   }
 
   get validForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return item.classGroup.valid.includes(this.args.type);
+        return item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -22,7 +32,7 @@ export default class ParentComponent extends Component {
   get invalidForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        return !item.classGroup.valid.includes(this.args.type);
+        return !item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;

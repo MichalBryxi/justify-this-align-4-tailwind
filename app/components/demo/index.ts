@@ -3,17 +3,68 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { TrackedObject } from 'tracked-built-ins';
 
-class ClassGroup extends Object {
-  constructor(params) {
-    super(params);
+export type FlexOrGrid = 'flex' | 'grid';
+
+export interface ClassGroupArgs {
+  id: string;
+  label: string;
+  valid: string[];
+  options: string[];
+}
+
+export interface ClassGroupInterface {
+  id: string;
+  label: string;
+  valid: string[];
+  options: string[];
+  isFlex(): boolean;
+  isGrid(): boolean;
+  isParent(): boolean;
+  isChild(): boolean;
+  isType(type: FlexOrGrid): boolean;
+  flexOrGrid(): FlexOrGrid | 'flexAndGrid' | undefined;
+}
+
+export interface SelectedInterface {
+  value: string;
+  classGroup: ClassGroupInterface;
+}
+
+// eslint-disable-next-line no-undef
+export type SelectedRecord = Record<string, SelectedInterface>;
+
+export class ClassGroup implements ClassGroupInterface {
+  id: string = '';
+  label: string = '';
+  valid: string[] = [];
+  options: string[] = [];
+
+  constructor(params: ClassGroupArgs) {
     Object.assign(this, params);
   }
 
-  isFlex() {
-    return this.valid.find((item) => item === 'flex');
+  isType(type: FlexOrGrid) {
+    if (type === 'flex') {
+      return this.isFlex();
+    } else {
+      return this.isGrid();
+    }
   }
+
+  isFlex() {
+    return this.valid.includes('flex');
+  }
+
   isGrid() {
-    return this.valid.find((item) => item === 'grid');
+    return this.valid.includes('grid');
+  }
+
+  isParent() {
+    return this.valid.includes('parent');
+  }
+
+  isChild() {
+    return this.valid.includes('child');
   }
 
   flexOrGrid() {
@@ -23,8 +74,6 @@ class ClassGroup extends Object {
       return 'flex';
     } else if (this.isGrid()) {
       return 'grid';
-    } else {
-      return '';
     }
   }
 }
@@ -32,7 +81,8 @@ class ClassGroup extends Object {
 export default class DemoComponent extends Component {
   @tracked justifyContent = '';
   @tracked justifyItems = '';
-  selected = new TrackedObject({});
+  // eslint-disable-next-line no-undef
+  selected = new TrackedObject<SelectedRecord>();
 
   classGroups = [
     new ClassGroup({
@@ -112,7 +162,7 @@ export default class DemoComponent extends Component {
     }),
   ];
 
-  @action toggleRadio(classGroup, value) {
+  @action toggleRadio(classGroup: ClassGroup, value: string) {
     this.selected[classGroup.id] = { value, classGroup };
   }
 }

@@ -1,11 +1,8 @@
-<div class="overflow-x-scroll w-full">
+<div class="overflow-x-scroll w-full bg-gray-200 shadow-xl pt-4 bg-gradient-to-t from-gray-200 via-gray-300 to-white">
   <div class="flex flex-row gap-4">
     {{#each this.classGroups as |classGroup|}}
       <Toggles
         @classGroup={{classGroup}}
-        @label={{classGroup.label}}
-        @valid={{classGroup.valid}}
-        @options={{classGroup.options}}
         @onToggle={{fn this.toggleRadio classGroup}}
       />
     {{/each}}

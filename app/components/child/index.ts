@@ -1,16 +1,25 @@
 import Component from '@glimmer/component';
+import { SelectedRecord, FlexOrGrid } from '../demo';
+import { COLORS } from '../../utils/constants';
 
-export default class ChildComponent extends Component {
+interface Args {
+  selected: SelectedRecord;
+  type: FlexOrGrid;
+}
+
+export default class ChildComponent extends Component<Args> {
+  COLORS = COLORS;
+
   get childClasses() {
     return Object.values(this.args.selected).filter((item) => {
-      return item.classGroup.valid.includes('child');
+      return item.classGroup.isChild();
     });
   }
 
   get validForTypeInChild() {
     return this.childClasses
       .filter((item) => {
-        return item.classGroup.valid.includes(this.args.type);
+        return item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;
@@ -21,7 +30,7 @@ export default class ChildComponent extends Component {
   get invalidForTypeInChild() {
     return this.childClasses
       .filter((item) => {
-        return !item.classGroup.valid.includes(this.args.type);
+        return !item.classGroup.isType(this.args.type);
       })
       .map((item) => {
         return item.value;
