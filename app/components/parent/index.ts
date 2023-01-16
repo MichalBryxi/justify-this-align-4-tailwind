@@ -21,7 +21,6 @@ export default class ParentComponent extends Component<ArgsParentSignature> {
   get validForTypeInParent() {
     return this.parentClasses
       .filter((item) => {
-        // return item.classGroup.valid.includes(this.args.type);
         return item.classGroup.isType(this.args.type);
       })
       .map((item) => {
